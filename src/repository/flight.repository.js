@@ -54,6 +54,7 @@ class FlightRepository extends CrudRepository {
         await db.sequelize.query(addRowLockOnFlight(data.id));
         try {
             const flight = await Flight.findByPk(data.id);
+            console.log(data);
 
             if (data.dec == "1") {
                 await flight.decrement(
